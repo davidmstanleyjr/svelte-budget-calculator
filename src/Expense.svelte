@@ -3,6 +3,7 @@
    export let name = '';
    export let amount = 0;
    let displayAmount = false;
+   export let removeExpense;
 
    //the new value of the displayAmount is gonna be the opposite of what it currently is
    function toggleAmount () {
@@ -24,7 +25,7 @@
       <button class='expense-btn edit-btn'>
     <i class='fas fa-pen' />
       </button>  
-      <button class='expense-btn delete-btn'>
+      <button class='expense-btn delete-btn' on:click="{() =>removeExpense(id)}">
         <i class='fas fa-trash' />
           </button> 
     </div>
