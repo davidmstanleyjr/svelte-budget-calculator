@@ -8,8 +8,13 @@
 	//variables
 	let expenses = [...expensesData];
 	//functions
+	//this functio removes individual expenses from the expense list
 	function removeExpense(id) {
 		expenses = expenses.filter(item => item.id !== id);
+	}
+	//this function clears all expenses from the page
+	function clearExpenses () {
+		expenses = [];
 	}
 
 // setContext
@@ -20,4 +25,5 @@ setContext('remove', removeExpense)
 <Navbar />
 <main class='content'>
 	<ExpensesList expenses={expenses} />
+	<button type='button' class='btn btn-primary btn-block' on:click={clearExpenses}>clear expenses</button>
 </main>
