@@ -17,18 +17,23 @@
 		expenses = expenses.filter(item => item.id !== id);
 	}
 	//this function clears all expenses from the page
-	function clearExpenses () {
+	function clearExpenses() {
 		expenses = [];
 	}
 
+	function addExpense({ name, amount }) {
+		let expense = { id: Math.random() * Date.now(), name, amount };
+		expenses = [expense,...expenses];
+	}
+
 // setContext
-setContext('remove', removeExpense)	
+setContext('remove', removeExpense);	
 
 </script>
 
 <Navbar />
 <main class='content'>
-<ExpenseForm /> 
+<ExpenseForm {addExpense} /> 
 <Totals title='total expenses' {total} />	
 	<ExpensesList expenses={expenses} />
 	<button type='button' class='btn btn-primary btn-block' on:click={clearExpenses}>clear expenses</button>
