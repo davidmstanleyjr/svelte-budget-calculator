@@ -2,7 +2,12 @@
 import Title from './Title.svelte';
     let name = '';
     let amount = null;
-    $: console.log({ name, amount });
+     //console.log({ name, amount });
+
+
+// this is logic that only allows a submission if both the name and amount are typed in.
+$: isEmpty= !name || !amount;
+
 </script>
 
 <section class='form'>
@@ -16,10 +21,12 @@ import Title from './Title.svelte';
             <label for="amount">amount</label>
             <input type="number" id='amount' bind:value={amount} />
             </div>
+            {#if isEmpty}
             <p class="form-empty">
                 please fill out all form fields
             </p>
-    <button type='submit' class="btn btn-block">
+            {/if}
+    <button type='submit' class="btn btn-block" class:disabled={isEmpty} disabled={isEmpty}>
         add expense
     </button>
     <button type='button' class='close-btn'>
