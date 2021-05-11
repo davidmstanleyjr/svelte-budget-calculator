@@ -9,6 +9,11 @@
 	import expensesData from './expenses';
 	//variables
 	let expenses = [...expensesData];
+	// set editing Variables
+	let setName = '';
+	let setAmount = null;
+	let setId = null;
+
 	//reactive
 	$: total = expenses.reduce((acc, curr) =>{return (acc += curr.amount)}, 0)
 	//functions
@@ -26,8 +31,20 @@
 		expenses = [expense,...expenses];
 	}
 
+	function setModifiedExpense(id) {
+		let expense = expenses.find(item => item.id === id);
+		console.log(expense);
+
+		 setId = expense.id;
+		 setName = expense.name;
+		 setAmount = expense.amount;
+		 console.log({setId, setName, setAmount});
+	}
+
 // setContext
-setContext('remove', removeExpense);	
+setContext('remove', removeExpense);
+setContext('modify', setModifiedExpense);	
+
 
 </script>
 
