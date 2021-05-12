@@ -5,6 +5,7 @@ export   let amount = null;
 export let addExpense;
 export let isEditing;
 export let editExpense;
+export let hideForm;
      //console.log({ name, amount });
 
 
@@ -43,7 +44,7 @@ function handleSubmit() {
     <button type='submit' class="btn btn-block" class:disabled={isEmpty} disabled={isEmpty}>
         {#if isEditing}edit expense{:else}add expense {/if}
     </button>
-    <button type='button' class='close-btn'>
+    <button type='button' class='close-btn' on:click={hideForm}>
     <i class="fas fa-times" />
         close
     </button>
