@@ -40,7 +40,12 @@
 		 setAmount = expense.amount;
 	}
 	function editExpense({ name, amount}) {
-		console.log({ name, amount })
+		expenses = expenses.map(item =>{
+			return item.id === setId? {...item,name,amount } : {...item};
+		});
+		setId= null;
+		setAmount = null;
+		setName = '';
 	}
 
 // setContext
