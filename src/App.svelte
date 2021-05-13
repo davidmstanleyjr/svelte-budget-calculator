@@ -7,6 +7,7 @@
 	import ExpensesList from './ExpensesList.svelte';
 	import Totals from './Totals.svelte';
 	import ExpenseForm from './ExpenseForm.svelte';
+	import Modal from './Modal.svelte';
 
 	//data
 	// import expensesData from './expenses';
@@ -91,9 +92,15 @@ afterUpdate(() => {
 <Navbar {showForm} />
 <main class='content'>
 	{#if isFormOpen} 
+	<Modal>
 <ExpenseForm {addExpense} name={setName} amount={setAmount} {isEditing} {editExpense} {hideForm} /> 
+</Modal>
 {/if}
 <Totals title='total expenses' {total} />	
 	<ExpensesList expenses={expenses} />
 	<button type='button' class='btn btn-primary btn-block' on:click={clearExpenses}>clear expenses</button>
 </main>
+
+
+	
+

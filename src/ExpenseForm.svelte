@@ -40,6 +40,7 @@ function handleSubmit() {
     }
     name = '';
     amount = null;
+    hideForm();
 }
 
 </script>
