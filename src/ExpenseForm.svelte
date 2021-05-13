@@ -16,6 +16,7 @@
 // onDestroy(() => {
 //     console.log('form is hidden');
 // });
+
 import Title from './Title.svelte';
 
 export  let name = '';

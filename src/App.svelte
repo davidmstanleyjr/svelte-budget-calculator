@@ -1,5 +1,5 @@
 <script>
-	import {setContext, onMount } from 'svelte';
+	import {setContext, onMount, afterUpdate } from 'svelte';
 
 
 	//components
@@ -7,6 +7,7 @@
 	import ExpensesList from './ExpensesList.svelte';
 	import Totals from './Totals.svelte';
 	import ExpenseForm from './ExpenseForm.svelte';
+
 	//data
 	// import expensesData from './expenses';
 	//variables
@@ -34,19 +35,16 @@
 	//this function removes individual expenses from the expense list
 	function removeExpense(id) {
 		expenses = expenses.filter(item => item.id !== id);
-		setLocalStorage();
 	}
 	//this function clears all expenses from the page
 	function clearExpenses() {
 		expenses = [];
-		setLocalStorage();
 
 	}
 
 	function addExpense({ name, amount }) {
 		let expense = { id: Math.random() * Date.now(), name, amount };
 		expenses = [expense,...expenses];
-		setLocalStorage();
 
 	}
 
@@ -65,7 +63,6 @@
 		setId= null;
 		setAmount = null;
 		setName = '';
-		setLocalStorage();
 
 	}
 
@@ -81,8 +78,13 @@ function setLocalStorage() {
 onMount(() => {
 	expenses = localStorage.getItem('expenses')?
 	JSON.parse(localStorage.getItem('expenses'))
-	:[]
-})
+	:[];
+});
+
+afterUpdate(() => {
+	console.log('after update');
+	setLocalStorage();
+});
 
 </script>
 
