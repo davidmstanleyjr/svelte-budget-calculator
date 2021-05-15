@@ -1,4 +1,4 @@
-<script> hello
+<script> 
   import {blur, slide, scale, fade, fly} from 'svelte/transition'; 
 
 </script>
