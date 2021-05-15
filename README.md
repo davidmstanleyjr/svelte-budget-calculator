@@ -25,8 +25,7 @@ Also getting the form to show only when clicked was complicated to figure out at
 
 # Screenshots
 
-![Screenshot 1](assets\snip1.PNG)
-
+![Screenshot 1](assets/snip1.PNG)
 # Live Page
 
 Here is a link to the deployed site. I hope you have fun with.
